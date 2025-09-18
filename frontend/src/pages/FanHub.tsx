@@ -17,8 +17,8 @@ type Comment = {
   createdAt: string;
 };
 
-
-const API_URL = import.meta.env.VITE_API_URL;
+const RAW_API_URL = import.meta.env.VITE_API_URL;
+const API_URL = RAW_API_URL ?? "";
 
 function FanHub() {
   const [pollVotes, setPollVotes] = useState({ win: 0, lose: 0 });
@@ -28,71 +28,167 @@ function FanHub() {
   const [gallery, setGallery] = useState<GalleryImage[]>([]);
   const [caption, setCaption] = useState("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  const currentUser = "guest"; // assume logged-in
+  const currentUser = "guest";
 
   useEffect(() => {
-    Promise.all([
-      fetch(`${API_URL}/poll`).then((r) => r.json()),
-      fetch(`${API_URL}/images`).then((r) => r.json()),
-      fetch(`${API_URL}/comments`).then((r) => r.json()),
-    ]).then(([poll, imgs, cmts]) => {
-      setPollVotes(poll);
-      setGallery(imgs);
-      setComments(cmts);
-    });
+    console.log("VITE_API_URL raw:", RAW_API_URL);
+    console.log("Using API_URL:", API_URL);
+    if (!API_URL) {
+      alert("API URL not configured.");
+      return;
+    }
+
+    const load = async () => {
+      try {
+        setLoading(true);
+        const [pollRes, imgsRes, cmtsRes] = await Promise.all([
+          fetch(`${API_URL}/poll`),
+          fetch(`${API_URL}/images`),
+          fetch(`${API_URL}/comments`),
+        ]);
+
+        if (!pollRes.ok || !imgsRes.ok || !cmtsRes.ok) {
+          console.error("Initial load failed", { pollRes, imgsRes, cmtsRes });
+          alert("Failed to load initial data. Check backend & CORS.");
+          return;
+        }
+
+        const [poll, imgs, cmts] = await Promise.all([pollRes.json(), imgsRes.json(), cmtsRes.json()]);
+        setPollVotes(poll);
+        setGallery(imgs);
+        setComments(cmts);
+      } catch (err) {
+        console.error("Initial load error:", err);
+        alert("Error loading data. See console.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    load();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleVote = async (choice: "win" | "lose") => {
-    if (hasVoted) return;
-    const res = await fetch(`${API_URL}/poll/${choice}`, { method: "POST" });
-    setPollVotes(await res.json());
-    setHasVoted(true);
-  };
-
-  const handleComment = async () => {
-    if (!comment.trim()) return;
-    const res = await fetch(`${API_URL}/comment`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ userId: currentUser, text: comment }),
-    });
-    setComments([await res.json(), ...comments]);
-    setComment("");
+  const refreshImages = async () => {
+    if (!API_URL) return;
+    try {
+      const r = await fetch(`${API_URL}/images`);
+      if (!r.ok) throw new Error("Failed to fetch images");
+      const imgs = await r.json();
+      setGallery(imgs);
+    } catch (err) {
+      console.error("Refresh images error:", err);
+    }
   };
 
   const handleImageUpload = async () => {
     if (!selectedFile) return;
+    if (!API_URL) {
+      alert("API URL not configured (VITE_API_URL).");
+      return;
+    }
+
     const formData = new FormData();
-    formData.append("image", selectedFile);
+    formData.append("image", selectedFile); // this must match backend multer field name
     formData.append("caption", caption);
     formData.append("userId", currentUser);
 
-    const res = await fetch(`${API_URL}/upload`, { method: "POST", body: formData });
-    setGallery([await res.json(), ...gallery]);
-    setCaption("");
-    setSelectedFile(null);
+    try {
+      setLoading(true);
+      const res = await fetch(`${API_URL}/upload`, { method: "POST", body: formData });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ message: res.statusText }));
+        console.error("Upload failed:", err);
+        alert("Upload failed: " + (err.message || res.statusText));
+        return;
+      }
+
+      // on success, re-fetch images to ensure consistent shape
+      await refreshImages();
+      setCaption("");
+      setSelectedFile(null);
+    } catch (err) {
+      console.error("Upload handler error:", err);
+      alert("Upload error. Check console.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // keep your other handlers but add error checks like above
+  const handleVote = async (choice: "win" | "lose") => {
+    if (hasVoted || !API_URL) return;
+    try {
+      const res = await fetch(`${API_URL}/poll/${choice}`, { method: "POST" });
+      if (!res.ok) throw new Error("Vote failed");
+      setPollVotes(await res.json());
+      setHasVoted(true);
+    } catch (err) {
+      console.error("Vote error:", err);
+      alert("Could not submit vote.");
+    }
+  };
+
+  const handleComment = async () => {
+    if (!comment.trim() || !API_URL) return;
+    try {
+      const res = await fetch(`${API_URL}/comment`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId: currentUser, text: comment }),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ message: res.statusText }));
+        throw new Error(err.message || "Comment failed");
+      }
+      const newComment = await res.json();
+      setComments((prev) => [newComment, ...prev]);
+      setComment("");
+    } catch (err) {
+      console.error("Comment error:", err);
+      alert("Could not post comment.");
+    }
   };
 
   const handleReaction = async (id: number, type: "like" | "love") => {
-    const res = await fetch(`${API_URL}/react/${id}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ userId: currentUser, type }),
-    });
-    const updated = await res.json();
-    setGallery((prev) => prev.map((img) => (img.id === id ? updated : img)));
+    if (!API_URL) return;
+    try {
+      const res = await fetch(`${API_URL}/react/${id}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId: currentUser, type }),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ message: res.statusText }));
+        throw new Error(err.message || "Reaction failed");
+      }
+      const updated = await res.json();
+      setGallery((prev) => prev.map((img) => (img.id === id ? updated : img)));
+    } catch (err) {
+      console.error("Reaction error:", err);
+      alert("Could not react to image.");
+    }
   };
 
   const handleDelete = async (id: number) => {
-    if (!window.confirm("Delete this image?")) return;
-    const res = await fetch(`${API_URL}/image/${id}`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ userId: currentUser }),
-    });
-    if (res.ok) setGallery((prev) => prev.filter((img) => img.id !== id));
-    else alert((await res.json()).message);
+    if (!window.confirm("Delete this image?") || !API_URL) return;
+    try {
+      const res = await fetch(`${API_URL}/image/${id}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId: currentUser }),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({ message: res.statusText }));
+        throw new Error(err.message || "Delete failed");
+      }
+      setGallery((prev) => prev.filter((img) => img.id !== id));
+    } catch (err) {
+      console.error("Delete error:", err);
+      alert("Could not delete image.");
+    }
   };
 
   const handleShare = (url: string) => {
