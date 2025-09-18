@@ -9,21 +9,15 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
   "http://localhost:5173", // local dev
-  "https://rcb-f-an-hub.vercel.app", // main production domain
-  /\.vercel\.app$/ // allow all your Vercel preview deployments
+  "https://shadowfox-rcb-fan-club.vercel.app/fan-hub",
 ];
 
 app.use(
   cors({
     origin: (origin, callback) => {
-      // allow REST tools / server-to-server (no origin)
       if (!origin) return callback(null, true);
 
-      if (
-        allowedOrigins.some((o) =>
-          o instanceof RegExp ? o.test(origin) : o === origin
-        )
-      ) {
+      if (allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));
@@ -32,6 +26,7 @@ app.use(
     credentials: true,
   })
 );
+
 app.use(express.json());
 
 // Configure Cloudinary
@@ -70,7 +65,7 @@ app.post("/upload", upload.single("image"), async (req, res) => {
     const newImage = {
       id: Date.now(),
       url: result.secure_url, // cloud URL
-      filename: result.public_id, // needed for delete
+      filename: result.public_id, 
       caption: caption || "",
       reactions: {},
       likes: 0,
@@ -88,12 +83,11 @@ app.post("/upload", upload.single("image"), async (req, res) => {
   }
 });
 
-/* ----------------- Get images ----------------- */
 app.get("/images", (req, res) => {
   res.json(getDB().images);
 });
 
-/* ----------------- React to image ----------------- */
+
 app.post("/react/:id", async (req, res) => {
   try {
     const db = getDB();
@@ -121,7 +115,6 @@ app.post("/react/:id", async (req, res) => {
   }
 });
 
-/* ----------------- Comments ----------------- */
 app.post("/comment", async (req, res) => {
   try {
     const db = getDB();
@@ -148,7 +141,6 @@ app.get("/comments", (req, res) => {
   res.json(getDB().comments);
 });
 
-/* ----------------- Poll ----------------- */
 app.post("/poll/:choice", async (req, res) => {
   try {
     const db = getDB();
@@ -165,7 +157,6 @@ app.post("/poll/:choice", async (req, res) => {
 
 app.get("/poll", (req, res) => res.json(getDB().polls));
 
-/* ----------------- Delete image ----------------- */
 app.delete("/image/:id", async (req, res) => {
   try {
     const db = getDB();
