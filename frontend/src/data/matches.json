@@ -1,0 +1,123 @@
+[
+    {
+      "date": "Mar 22, 2025 · 07:30 PM IST",
+      "match": "KKR vs RCB",
+      "venue": "Eden Gardens, Kolkata",
+      "result": "RCB won by 7 wickets",
+      "rcbLogo": "/logos/rcb-logo.png",
+      "opponentLogo": "/logos/kkr.png"
+    },
+    {
+      "date": "Mar 28, 2025 · 07:30 PM IST",
+      "match": "CSK vs RCB",
+      "venue": "MA Chidambaram Stadium, Chennai",
+      "result": "RCB won by 50 runs",
+      "rcbLogo": "/logos/rcb-logo.png",
+      "opponentLogo": "/logos/csk.png"
+    },
+    {
+      "date": "Apr 02, 2025 · 07:30 PM IST",
+      "match": "RCB vs GT",
+      "venue": "M. Chinnaswamy Stadium, Bengaluru",
+      "result": "GT won by 8 wickets",
+      "rcbLogo": "/logos/rcb-logo.png",
+      "opponentLogo": "/logos/gt.png"
+    },
+    {
+      "date": "Apr 07, 2025 · 07:30 PM IST",
+      "match": "MI vs RCB",
+      "venue": "Wankhede Stadium, Mumbai",
+      "result": "RCB won by 12 runs",
+      "rcbLogo": "/logos/rcb-logo.png",
+      "opponentLogo": "/logos/mi.png"
+    },
+    {
+      "date": "Apr 10, 2025 · 07:30 PM IST",
+      "match": "RCB vs DC",
+      "venue": "M. Chinnaswamy Stadium, Bengaluru",
+      "result": "DC won by 6 wickets",
+      "rcbLogo": "/logos/rcb-logo.png",
+      "opponentLogo": "/logos/dc.png"
+    },
+    {
+      "date": "Apr 13, 2025 · 03:30 PM IST",
+      "match": "RR vs RCB",
+      "venue": "Sawai Mansingh Stadium, Jaipur",
+      "result": "RCB won by 9 wickets",
+      "rcbLogo": "/logos/rcb-logo.png",
+      "opponentLogo": "/logos/rr.png"
+    },
+    {
+      "date": "Apr 18, 2025 · 07:30 PM IST",
+      "match": "RCB vs PBKS",
+      "venue": "M. Chinnaswamy Stadium, Bengaluru",
+      "result": "PBKS won by 5 wickets",
+      "rcbLogo": "/logos/rcb-logo.png",
+      "opponentLogo": "/logos/pbks.png"
+    },
+    {
+      "date": "Apr 20, 2025 · 03:30 PM IST",
+      "match": "PBKS vs RCB",
+      "venue": "Mullanpur (New Chandigarh)",
+      "result": "RCB won by 7 wickets",
+      "rcbLogo": "/logos/rcb-logo.png",
+      "opponentLogo": "/logos/pbks.png"
+    },
+    {
+      "date": "Apr 24, 2025 · 07:30 PM IST",
+      "match": "RCB vs RR",
+      "venue": "M. Chinnaswamy Stadium, Bengaluru",
+      "result": "RCB won by 11 runs",
+      "rcbLogo": "/logos/rcb-logo.png",
+      "opponentLogo": "/logos/rr.png"
+    },
+    {
+      "date": "Apr 27, 2025 · 07:30 PM IST",
+      "match": "DC vs RCB",
+      "venue": "Arun Jaitley Stadium, Delhi",
+      "result": "RCB won by 6 wickets",
+      "rcbLogo": "/logos/rcb-logo.png",
+      "opponentLogo": "/logos/dc.png"
+    },
+    {
+      "date": "May 03, 2025 · 07:30 PM IST",
+      "match": "RCB vs CSK",
+      "venue": "M. Chinnaswamy Stadium, Bengaluru",
+      "result": "RCB won by 2 runs",
+      "rcbLogo": "/logos/rcb-logo.png",
+      "opponentLogo": "/logos/csk.png"
+    },
+    {
+      "date": "May 09, 2025 · 07:30 PM IST",
+      "match": "LSG vs RCB",
+      "venue": "Ekana Cricket Stadium, Lucknow",
+      "result": "RCB won by 6 wickets",
+      "rcbLogo": "/logos/rcb-logo.png",
+      "opponentLogo": "/logos/lsg.png"
+    },
+    {
+      "date": "May 13, 2025 · 07:30 PM IST",
+      "match": "RCB vs SRH",
+      "venue": "M. Chinnaswamy Stadium, Bengaluru",
+      "result": "SRH won by 42 runs",
+      "rcbLogo": "/logos/rcb-logo.png",
+      "opponentLogo": "/logos/srh.png"
+    },
+    {
+      "date": "May 17, 2025 · 07:30 PM IST",
+      "match": "RCB vs KKR",
+      "venue": "M. Chinnaswamy Stadium, Bengaluru",
+      "result": "Match abandoned",
+      "rcbLogo": "/logos/rcb-logo.png",
+      "opponentLogo": "/logos/kkr.png"
+    },
+    {
+      "date": "Jun 03, 2025 · Final · 07:30 PM IST",
+      "match": "RCB vs PBKS (Final)",
+      "venue": "Narendra Modi Stadium, Ahmedabad",
+      "result": "RCB won by 6 runs (First IPL Title)",
+      "rcbLogo": "/logos/rcb-logo.png",
+      "opponentLogo": "/logos/pbks.png"
+    }
+  ]
+  

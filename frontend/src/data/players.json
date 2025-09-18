@@ -1,0 +1,267 @@
+[
+  {
+    "id": 1,
+    "name": "Virat Kohli",
+    "nationality": "India",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm medium",
+    "yearSigned": 2008,
+    "experience": 17,   
+    "role": "Batter",
+    "image": "/players/virat.png"
+  },
+  {
+    "id": 2,
+    "name": "Rajat Patidar",
+    "nationality": "India",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm off break",
+    "yearSigned": 2022,
+    "experience": 3,
+    "role": "Batter (Captain)",
+    "image": "/players/rajat.png"
+  },
+  {
+    "id": 3,
+    "name": "Phil Salt",
+    "nationality": "England",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "N/A",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "Wicketkeeper-Batter",
+    "image": "/players/salt.png"
+  },
+  {
+    "id": 4,
+    "name": "Jitesh Sharma",
+    "nationality": "India",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "N/A",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "Wicketkeeper-Batter",
+    "image": "/players/jitesh.png"
+  },
+  {
+    "id": 5,
+    "name": "Liam Livingstone",
+    "nationality": "England",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm off break",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "All-rounder",
+    "image": "/players/liam.png"
+  },
+  {
+    "id": 6,
+    "name": "Krunal Pandya",
+    "nationality": "India",
+    "battingStyle": "Left-handed",
+    "bowlingStyle": "Left-arm orthodox",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "All-rounder",
+    "image": "/players/krunal.png"
+  },
+  {
+    "id": 7,
+    "name": "Tim David",
+    "nationality": "Australia / Singapore",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm off break",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "All-rounder",
+    "image": "/players/david.png"
+  },
+  {
+    "id": 8,
+    "name": "Swapnil Singh",
+    "nationality": "India",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm medium",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "All-rounder",
+    "image": "/players/swapnil.png"
+  },
+  {
+    "id": 9,
+    "name": "Josh Hazlewood",
+    "nationality": "Australia",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm fast",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "Bowler",
+    "image": "/players/josh.png"
+  },
+  {
+    "id": 10,
+    "name": "Blessing Muzarabani",
+    "nationality": "Zimbabwe",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm fast-medium",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "Bowler",
+    "image": "/players/blessing.png"
+  },
+  {
+    "id": 11,
+    "name": "Bhuvneshwar Kumar",
+    "nationality": "India",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm medium",
+    "yearSigned": 2025,
+    "experience": 0, 
+    "role": "Bowler",
+    "image": "/players/kumar.png"
+  },
+  {
+    "id": 12,
+    "name": "Yash Dayal",
+    "nationality": "India",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Left-arm medium-fast",
+    "yearSigned": 2024,
+    "experience": 1,
+    "role": "Bowler",
+    "image": "/players/yash.png"
+  },
+  {
+    "id": 13,
+    "name": "Rasikh Salam Dar",
+    "nationality": "India",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm medium",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "Bowler",
+    "image": "/players/rasikh.png"
+  },
+  {
+    "id": 14,
+    "name": "Suyash Sharma",
+    "nationality": "India",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm leg-break",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "Bowler",
+    "image": "/players/suyash.png"
+  },
+  {
+    "id": 15,
+    "name": "Nuwan Thushara",
+    "nationality": "Sri Lanka",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm fast-medium",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "Bowler",
+    "image": "/players/nuwan.png"
+  },
+  {
+    "id": 16,
+    "name": "Devdutt Padikkal",
+    "nationality": "India",
+    "battingStyle": "Left-handed",
+    "bowlingStyle": "Right-arm off break",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "Batter",
+    "image": "/players/devdutt.png"
+  },
+  {
+    "id": 17,
+    "name": "Mayank Agarwal",
+    "nationality": "India",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm off break",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "Batter",
+    "image": "/players/agarwal.png"
+  },
+  {
+    "id": 18,
+    "name": "Swastik Chikara",
+    "nationality": "India",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm off break",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "Batter",
+    "image": "/players/swastik.png"
+  },
+  {
+    "id": 19,
+    "name": "Abhinandan Singh",
+    "nationality": "India",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm fast-medium",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "Bowler",
+    "image": "/players/singh.png"
+  },
+  {
+    "id": 20,
+    "name": "Romario Shepherd",
+    "nationality": "West Indies",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm medium-fast",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "All-rounder",
+    "image": "/players/romario.png"
+  },
+  {
+    "id": 21,
+    "name": "Mohit Rathee",
+    "nationality": "India",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm off break",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "Bowler",
+    "image": "/players/mohit.png"
+  },
+  {
+    "id": 22,
+    "name": "Manoj Bhandage",
+    "nationality": "India",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm medium-fast",
+    "yearSigned": 2025,
+    "experience": 0,
+    "role": "All-rounder",
+    "image": "/players/Manoj.png"
+  },
+  {
+    "id": 23,
+    "name": "Mohammed Siraj",
+    "nationality": "India",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm fast-medium",
+    "yearSigned": 2018,
+    "experience": 7,
+    "role": "Bowler",
+    "image": "/players/mohammad.png"
+  },
+  {
+    "id": 24,
+    "name": "Faf du Plessis",
+    "nationality": "South Africa",
+    "battingStyle": "Right-handed",
+    "bowlingStyle": "Right-arm leg-spin",
+    "yearSigned": 2022,
+    "experience": 15,
+    "role": "Batsman",
+    "image": "/players/plessis.png"
+  }
+  
+]

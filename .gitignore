@@ -1,0 +1,43 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Env files (never push secrets)
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
+pids/
+*.pid
+
+# Uploaded user files & generated media
+/uploads/
+uploads/
+*.sqlite
+*.db
+db.json
+
+# Mac Thumbs
+Thumbs.db
+
+# Misc
+coverage/
+.cache/
