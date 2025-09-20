@@ -28,7 +28,7 @@ function FanHub() {
   const [gallery, setGallery] = useState<GalleryImage[]>([]);
   const [caption, setCaption] = useState("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
 
   const currentUser = "guest";
 
