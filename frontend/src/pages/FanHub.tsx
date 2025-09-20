@@ -16,7 +16,6 @@ type Comment = {
   text: string;
   createdAt: string;
 };
-
 const RAW_API_URL = import.meta.env.VITE_API_URL;
 const API_URL = RAW_API_URL ?? "";
 
@@ -28,7 +27,7 @@ function FanHub() {
   const [gallery, setGallery] = useState<GalleryImage[]>([]);
   const [caption, setCaption] = useState("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
 
   const currentUser = "guest";
 
