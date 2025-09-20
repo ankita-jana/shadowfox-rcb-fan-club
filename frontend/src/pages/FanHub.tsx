@@ -33,13 +33,6 @@ function FanHub() {
   const currentUser = "guest";
 
   useEffect(() => {
-    console.log("VITE_API_URL raw:", RAW_API_URL);
-    console.log("Using API_URL:", API_URL);
-    if (!API_URL) {
-      alert("API URL not configured.");
-      return;
-    }
-
     const load = async () => {
       try {
         setLoading(true);
